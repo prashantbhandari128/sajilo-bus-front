@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-32x32.png">
+    <link rel="manifest" href="favicon/site.webmanifest"> 
+
+
+    <title>Search - SajiloBus</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            background-image: url(bus-background.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #ffae00;
+        }
+
+        /*--------[Scrollbar]--------*/
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: white;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background:  #ffae00;
+        }
+
+        /*---------------------------*/
+    </style>
+</head>
+
+<body>
+    <header class="sticky-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">2024-01-12 | 12:50 AM</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75">
+        <div class="container-fluid fw-bold">
+            <a class="navbar-brand text-white" href="#">
+                <i class="fa-solid fa-bus"></i> SajiloBus
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dummy Link 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dummy Link 2</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid my-4">
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <div class="input-group">
+                    <select class="form-select" id="start-location">
+                        <option value="">Select Start Location</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="input-group">
+                    <select class="form-select" id="destination-location">
+                        <option value="">Select Destination</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 mb-3">
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-warning w-100">Search</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card p-3">
+                    <h5>Departure Time</h5>
+                    <div class="btn-group-vertical">
+                        <button class="btn btn-outline-dark">Before 10 AM</button>
+                        <button class="btn btn-outline-dark">10 AM - 4 PM</button>
+                        <button class="btn btn-outline-dark">After 4 PM</button>
+                    </div>
+                </div>
+                <div class="card p-3 mt-3">
+                    <h5>Bus Operator</h5>
+                    <input type="text" class="form-control mb-2" placeholder="Search bus operators...">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="operator1">
+                        <label class="form-check-label" for="operator1">Operator 1</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="operator2">
+                        <label class="form-check-label" for="operator2">Operator 2</label>
+                    </div>
+                    <!-- Repeat for other operators -->
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- Repeat this card structure for each bus option -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Sofa Seater</h5>
+                        <p class="card-text">Open Visit (Night Service)</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div>
+                                <p><strong>7:25 PM</strong></p>
+                                <p>Start Location</p>
+                            </div>
+                            <div>
+                                <p><strong>8:00 AM</strong></p>
+                                <p>End Location</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success">Negotiable</span>
+                            <p class="mb-0">25 seats available</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-dark">View Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat card structure ends -->
+                <!-- Repeat this card structure for each bus option -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Sofa Seater</h5>
+                        <p class="card-text">Open Visit (Night Service)</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div>
+                                <p><strong>7:25 PM</strong></p>
+                                <p>Start Location</p>
+                            </div>
+                            <div>
+                                <p><strong>8:00 AM</strong></p>
+                                <p>End Location</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success">Negotiable</span>
+                            <p class="mb-0">25 seats available</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-dark">View Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat card structure ends -->
+                <!-- Repeat this card structure for each bus option -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Sofa Seater</h5>
+                        <p class="card-text">Open Visit (Night Service)</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div>
+                                <p><strong>7:25 PM</strong></p>
+                                <p>Start Location</p>
+                            </div>
+                            <div>
+                                <p><strong>8:00 AM</strong></p>
+                                <p>End Location</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success">Negotiable</span>
+                            <p class="mb-0">25 seats available</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-dark">View Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat card structure ends -->
+                <!-- Repeat this card structure for each bus option -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Sofa Seater</h5>
+                        <p class="card-text">Open Visit (Night Service)</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div>
+                                <p><strong>7:25 PM</strong></p>
+                                <p>Start Location</p>
+                            </div>
+                            <div>
+                                <p><strong>8:00 AM</strong></p>
+                                <p>End Location</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success">Negotiable</span>
+                            <p class="mb-0">25 seats available</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-dark">View Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat card structure ends -->
+                <!-- Repeat this card structure for each bus option -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Sofa Seater</h5>
+                        <p class="card-text">Open Visit (Night Service)</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div>
+                                <p><strong>7:25 PM</strong></p>
+                                <p>Start Location</p>
+                            </div>
+                            <div>
+                                <p><strong>8:00 AM</strong></p>
+                                <p>End Location</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success">Negotiable</span>
+                            <p class="mb-0">25 seats available</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-dark">View Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat card structure ends -->
+                <!-- Repeat this card structure for each bus option -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Sofa Seater</h5>
+                        <p class="card-text">Open Visit (Night Service)</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div>
+                                <p><strong>7:25 PM</strong></p>
+                                <p>Start Location</p>
+                            </div>
+                            <div>
+                                <p><strong>8:00 AM</strong></p>
+                                <p>End Location</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success">Negotiable</span>
+                            <p class="mb-0">25 seats available</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-dark">View Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat card structure ends -->
+                <!-- Repeat this card structure for each bus option -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Sofa Seater</h5>
+                        <p class="card-text">Open Visit (Night Service)</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div>
+                                <p><strong>7:25 PM</strong></p>
+                                <p>Start Location</p>
+                            </div>
+                            <div>
+                                <p><strong>8:00 AM</strong></p>
+                                <p>End Location</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success">Negotiable</span>
+                            <p class="mb-0">25 seats available</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-dark">View Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat card structure ends -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
